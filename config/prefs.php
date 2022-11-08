@@ -1594,3 +1594,10 @@ $_prefs['ignore_uidvalidity'] = array(
     'type' => 'checkbox',
     'locked' => true
 );
+
+// show the dkim status of a message
+$_prefs['show_dkim_status'] = array(
+    'value' => 0,
+    'type' => 'checkbox',
+    'locked' => true
+);

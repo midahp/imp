@@ -176,6 +176,7 @@ class IMP_Contents_Message
         $session->start();
 
         $result['md'] = $inlineout['metadata'];
+        $result['dkim_status'] = $inlineout['dkim_status'];
         $result['msgtext'] .= $inlineout['msgtext'];
         if ($inlineout['one_part']) {
             $result['onepart'] = true;
@@ -706,7 +707,8 @@ class IMP_Contents_Message
             'display_ids' => array_keys($display_ids),
             'metadata' => $metadata,
             'msgtext' => $text_out,
-            'one_part' => (count($i) === 1)
+            'one_part' => (count($i) === 1),
+            'dkim_status' => $this->contents->getDkimStatus(),
         );
     }
 

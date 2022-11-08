@@ -162,6 +162,7 @@ class IMP_Dynamic_Mailbox extends IMP_Dynamic_Base
             'msglist_template_horiz' => file_get_contents(IMP_TEMPLATES . '/dynamic/msglist_horiz.html'),
             'msglist_template_vert' => file_get_contents(IMP_TEMPLATES . '/dynamic/msglist_vert.html'),
 
+            'show_dkim_status' => (bool) $prefs->getValue('show_dkim_status'),
             // Other variables
             'acl' => $acl,
             'filter_any' => intval($prefs->getValue('filter_any_mailbox')),

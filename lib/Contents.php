@@ -11,6 +11,10 @@
  * @package   IMP
  */
 
+use PHPMailer\DKIMValidator\Validator;
+use PHPMailer\DKIMValidator\DKIMException;
+
+
 /**
  * Contains all functions related to handling the content and output of mail
  * messages in IMP.
@@ -1377,4 +1381,22 @@ class IMP_Contents
         return $ret;
     }
 
+
+    public function getDkimStatus()
+    {
+        if (!$GLOBALS['prefs']->getValue('show_dkim_status')) {
+            return false;
+        }
+        $message = $this->fullMessageText();
+        $dkimValidator = new Validator($message);
+        try {
+            if ($dkimValidator->validateBoolean()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (DKIMException $e) {
+            return null;
+        }
+    }
 }

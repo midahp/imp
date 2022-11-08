@@ -43,6 +43,7 @@ dependencies:
   required:
     php: ^7.4 || ^8
     composer:
+      phpmailer/dkimvalidator: ^0.3
       horde/horde: ^6
       horde/auth: ^3
       horde/browser: ^3

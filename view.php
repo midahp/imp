@@ -81,6 +81,12 @@ $browser->downloadHeaders(
     $size
 );
 
+if ($GLOBALS['prefs']->getValue('show_dkim_status')) {
+    $dkim = $res['dkim'] ?? null;
+    $dkim = $dkim ? 'Valid' : 'Invalid';
+    echo "DKIM: $dkim\n";
+}
+
 if (is_resource($res['data'])) {
     rewind($res['data']);
     while (!feof($res['data'])) {

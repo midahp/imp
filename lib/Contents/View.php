@@ -168,7 +168,8 @@ class IMP_Contents_View
                 'stream' => true
             )),
             'name' => _("Message Source"),
-            'type' => 'text/plain; charset=' . (is_null($charset) ? 'UTF-8' : $charset)
+            'type' => 'text/plain; charset=' . (is_null($charset) ? 'UTF-8' : $charset),
+            'dkim' => $this->_contents->getDkimStatus(),
         );
     }
 
